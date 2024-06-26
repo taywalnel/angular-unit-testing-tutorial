@@ -1,22 +1,21 @@
-.container {
-  width: 500px;
-}
-
-.notes-container {
+.formgroup-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.notes-heading {
+.input-container {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.container {
   padding: 20px;
 }
 
-.note-limit {
-  margin: 0 20px 0 20px;
+.note-error {
+  margin: 20px;
   display: flex;
   justify-content: center;
   color: #f54052;

@@ -1,0 +1,16 @@
+<div class="container">
+  <div [formGroup]="formGroup" class="formgroup-container">
+    <div class="input-container">
+      <label for="title">Title:</label>
+      <input id="title" type="text" formControlName="title" />
+    </div>
+    <div class="input-container">
+      <label for="content">Content:</label>
+      <input id="content" type="text" formControlName="content" />
+    </div>
+  </div>
+  <button class="button-9" (click)="handleCreateNote()">Create note</button>
+  <div *ngIf="displayErrorMessage" class="note-error">
+    Please fill in both inputs
+  </div>
+</div>
