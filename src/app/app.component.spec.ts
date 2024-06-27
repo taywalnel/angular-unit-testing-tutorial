@@ -118,11 +118,59 @@ describe('AppComponent', () => {
     });
 
     describe('when the note limit has NOT been reached', () => {
-      beforeEach(() => {});
+      const mockNewNote = {
+        id: '3',
+        title: 'qwer',
+        content: 'qwerqwer',
+      };
 
-      it('should add a new note', () => {});
+      beforeEach(() => {
+        component.notes = [
+          {
+            id: '1',
+            title: 'qwer',
+            content: 'qwerqwer',
+          },
+          {
+            id: '2',
+            title: 'qwer',
+            content: 'qwerqwer',
+          },
+        ];
+        component.notesCount = '2/3';
+      });
 
-      it('should update the note count', () => {});
+      it('should add a new note', () => {
+        component.handleCreateNote(mockNewNote);
+
+        expect(component.notes.length).toEqual(3);
+        expect(component.notes.includes(mockNewNote)).toEqual(true);
+      });
+
+      it('should update the note count', () => {
+        component.handleCreateNote(mockNewNote);
+
+        expect(component.notesCount).toEqual('3/3');
+      });
+    });
+  });
+
+  describe('setNoteCount', () => {
+    it('should set the accurate note count', () => {
+      component.setNoteCount([
+        {
+          id: '1',
+          title: 'qwer',
+          content: 'qwerqwer',
+        },
+        {
+          id: '2',
+          title: 'qwer',
+          content: 'qwerqwer',
+        },
+      ]);
+
+      expect(component.notesCount).toEqual('2/3');
     });
   });
 });
